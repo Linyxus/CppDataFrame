@@ -12,6 +12,7 @@ int main()
     DataColumn<int> dc(data);
     display(dc.getData());
 
+    cout << ">>> dc > 5" << endl;
     vector<int> res = dc > 5;
     display(res, [&](int i){ cout << "[" << i << "] = " << dc.getData()[i] << endl; });
 
@@ -24,29 +25,30 @@ int main()
     display(df);
     //#2.1 DataFrame[string]
     cout << "Test DataFrame[string]:" << endl;
-    cout << "df[\"[1]\"]:" << endl;
+    cout << ">>> df[\"[1]\"]:" << endl;
     DataColumn<int> col = df["[1]"];
     display(col.getData());
-    cout << "df[\"[3]\"]:" << endl;
+    cout << ">>> df[\"[3]\"]:" << endl;
     col = df["[3]"];
     display(col.getData());
     //#2.2 DataFrame[{str1, str2, ...}]
     cout << "Test DataFrame[{str1, str2, ...}]" << endl;
-    cout << "df[{\"[1]\", \"[2]\"}]:" << endl;
+    cout << ">>> df[{\"[1]\", \"[2]\"}]:" << endl;
     DataFrame<int> dff = df[{"[1]", "[2]"}];
     display(dff);
     //#2.3 DataFrame[rowIndex]
     cout << "Test DataFrame[rowIndex] and modify:" << endl;
+    cout << ">>> df[0][\"[1]\"] = 100" << endl;
     df[0]["[1]"] = 100;
     display(df);
     //#2.4 DataFrame[{id1, id2, ...}]
     cout << "Test DataFrame[{id1, id2, ...}]" << endl;
-    cout << "df[{0, 1}]:" << endl;
+    cout << ">>> df[{0, 1}]:" << endl;
     dff = df[{0, 1}];
     display(dff);
     //#2.5 Final Test
     cout << "Final Test" << endl;
-    cout << "df[df[\"[1]\"] < 10]:" << endl;
+    cout << ">>> df[df[\"[1]\"] < 10]:" << endl;
     dff = df[df["[1]"] < 10];
     display(dff);
 
