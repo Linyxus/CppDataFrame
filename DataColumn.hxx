@@ -9,7 +9,7 @@ class DataColumn
 {
 public:
     DataColumn() { }
-    DataColumn(const vector<T>& data) : data(data) { }
+    DataColumn(const vector<T>& data) { this->data = data; }
     const vector<T>& getData() const { return this->data; }
 private:
     vector<T> data;
